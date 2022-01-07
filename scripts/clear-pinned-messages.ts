@@ -15,6 +15,9 @@ const main = async () => {
 
 	console.log(`Received ${originChannelPins.length} pins from origin channel. Removing...`);
 	const sortedOriginChannelPins = originChannelPins.sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime());
+	const sortedOriginChannelPinsURLS = sortedOriginChannelPins
+		.map((message) => `https://discord.com/channels/${process.env.GUILD_ID ?? message.guild_id}/${message.channel_id}/${message.id}`)
+		.join('\n\t\t');
 	for (const message of sortedOriginChannelPins) {
 		try {
 			await rest.delete<RESTDeleteAPIChannelMessageResult>(`/channels/${process.env.ORIGIN_CHANNEL_ID}/pins/${message.id}`);
@@ -25,10 +28,8 @@ const main = async () => {
 	}
 	console.log(stripIndent`
 		List of urls:
-        ${sortedOriginChannelPins
-					.map((message) => `https://discord.com/channels/${process.env.GUILD_ID ?? message.guild_id}/${message.channel_id}/${message.id}`)
-					.join('\n\t\t')}
-    `);
+		${sortedOriginChannelPinsURLS}
+	`);
 	console.log('Messages unpinned.');
 };
 
