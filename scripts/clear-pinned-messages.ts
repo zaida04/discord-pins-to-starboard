@@ -6,7 +6,6 @@ import { checkEnvVariables } from './util';
 const main = async () => {
 	const rest = new Rest(process.env.DISCORD_TOKEN);
 	let originChannelPins: APIMessage[];
-
 	try {
 		originChannelPins = await rest.get<RESTGetAPIChannelPinsResult>(`/channels/${process.env.ORIGIN_CHANNEL_ID}/pins`);
 	} catch (e) {
@@ -25,7 +24,7 @@ const main = async () => {
 		}
 	}
 	console.log(stripIndent`
-    List of urls:
+		List of urls:
         ${sortedOriginChannelPins
 					.map((message) => `https://discord.com/channels/${process.env.GUILD_ID ?? message.guild_id}/${message.channel_id}/${message.id}`)
 					.join('\n\t\t')}
