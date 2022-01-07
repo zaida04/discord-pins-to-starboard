@@ -19,20 +19,13 @@ const main = async () => {
 		.map((message) => `https://discord.com/channels/${process.env.GUILD_ID ?? message.guild_id}/${message.channel_id}/${message.id}`)
 		.join('\n\t\t');
 
-	const promises = sortedOriginChannelPins.map((message) =>
-		rest.delete<RESTDeleteAPIChannelMessageResult>(`/channels/${process.env.ORIGIN_CHANNEL_ID}/pins/${message.id}`)
+	await Promise.all(
+		sortedOriginChannelPins.map((message) =>
+			rest
+				.delete<RESTDeleteAPIChannelMessageResult>(`/channels/${process.env.ORIGIN_CHANNEL_ID}/pins/${message.id}`)
+				.catch((error) => console.log(`There was an error unpinning the message ${message.id}. ${error}`))
+		)
 	);
-
-	const settled = await Promise.allSettled(promises);
-
-	for (let i = 0; i < settled.length; i++) {
-		const promise = settled[i];
-		const message = sortedOriginChannelPins[i];
-
-		if (promise.status === 'rejected') {
-			console.log(`There was an error unpinning the message ${message.id}. ${promise.reason}`);
-		}
-	}
 
 	console.log(stripIndent`
 		List of urls:
