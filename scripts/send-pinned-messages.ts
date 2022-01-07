@@ -14,7 +14,6 @@ const main = async () => {
 	const rest = new Rest(process.env.DISCORD_TOKEN);
 	let originChannelPins: APIMessage[];
 	let destinationChannel: APIChannel;
-
 	try {
 		originChannelPins = await rest.get<RESTGetAPIChannelPinsResult>(`/channels/${process.env.ORIGIN_CHANNEL_ID}/pins`);
 		destinationChannel = await rest.get<RESTGetAPIChannelResult>(`/channels/${process.env.DESTINATION_CHANNEL_ID}`);
