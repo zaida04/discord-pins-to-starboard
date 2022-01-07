@@ -16,7 +16,7 @@ yarn run-script <script-of-chosing>
 - [Get Pinned Messages](https://github.com/zaida04/discord-pins-to-starboard/blob/main/scripts/get-pinned-messages.ts)
   - env: `DISCORD_TOKEN`, `GUILD_ID`, `ORIGIN_CHANNEL_ID`
 - [Send Pinned Messages](https://github.com/zaida04/discord-pins-to-starboard/blob/main/scripts/send-pinned-messages.ts)
-  - env: `DISCORD_TOKEN`, `GUILD_ID`, `ORIGIN_CHANNEL_ID`, `DESTINATION_CHANNEL_ID`, `DESTINATION_GUILD_ID` (optional)
+  - env: `DISCORD_TOKEN`, `GUILD_ID`, `ORIGIN_CHANNEL_ID`, `DESTINATION_CHANNEL_ID`, `DESTINATION_GUILD_ID (optional)`
 - [Clear Pinned Messages](https://github.com/zaida04/discord-pins-to-starboard/blob/main/scripts/clear-pinned-messages.ts)
   - env: `DISCORD_TOKEN`, `GUILD_ID`, `ORIGIN_CHANNEL_ID`
 
