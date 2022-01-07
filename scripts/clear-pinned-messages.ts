@@ -19,7 +19,7 @@ const main = async () => {
 		.map((message) => `https://discord.com/channels/${process.env.GUILD_ID ?? message.guild_id}/${message.channel_id}/${message.id}`)
 		.join('\n\t\t');
 
-	const promises: Promise<RESTDeleteAPIChannelMessageResult>[] = sortedOriginChannelPins.map((message) =>
+	const promises = sortedOriginChannelPins.map((message) =>
 		rest.delete<RESTDeleteAPIChannelMessageResult>(`/channels/${process.env.ORIGIN_CHANNEL_ID}/pins/${message.id}`)
 	);
 
