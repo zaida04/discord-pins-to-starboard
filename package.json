@@ -1,8 +1,7 @@
 {
-  "name": "starboard-convert",
+  "name": "discord-pins-to-starboard",
   "version": "1.0.0",
-  "description": "Convert your Discord pins to a collection of messages",
-  "main": "dist/index.js",
+  "description": "Utility scripts for managing your pins in a Discord channel and migrating them to a starboard system.",
   "scripts": {
     "build": "npx rimraf dist/ && tsc",
     "lint": "npx eslint scripts/",
@@ -19,6 +18,7 @@
     "@types/node": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
+    "discord-api-types": "^0.26.1",
     "dotenv": "^10.0.0",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^8.3.0",
@@ -32,8 +32,7 @@
   },
   "dependencies": {
     "@cordis/rest": "^1.2.0",
-    "common-tags": "^1.8.2",
-    "discord-api-types": "^0.26.1"
+    "common-tags": "^1.8.2"
   },
   "repository": "https://github.com/zaida04/discord-pins-to-starboard.git",
   "author": "Zaid (Nico)",
