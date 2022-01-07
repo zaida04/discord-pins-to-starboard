@@ -5,7 +5,7 @@ Utility scripts for managing your pins in a Discord channel and migrating them t
 ## ⚡ Usage
 
 ```
-https://github.com/zaida04/discord-pins-to-starboard
+git clone https://github.com/zaida04/discord-pins-to-starboard
 cd discord-pins-to-starboard
 yarn run build
 yarn run-script <script-of-chosing>
